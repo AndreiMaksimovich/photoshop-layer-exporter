@@ -26,14 +26,11 @@ SOFTWARE.
 */
 
 var defaultExportPath = Folder.desktop.fullName + "/Export/";
+var defaultExportFileNamePrefix = app.activeDocument.name;
 try {
     defaultExportPath = app.activeDocument.path + "/" + app.activeDocument.name.substring(0, app.activeDocument.name.length-4) + ".Export/";
+    defaultExportFileNamePrefix = defaultExportFileNamePrefix.substring(0, defaultExportFileNamePrefix.length-4);
 } catch (e) {}
-
-var defaultExportFileNamePrefix = app.activeDocument.name;
-if (defaultExportFileNamePrefix.indexOf(".psd", 0)!=0) {
-    defaultExportFileNamePrefix = defaultExportFileNamePrefix.substring(0, defaultExportFileNamePrefix.length-4) 
-}
 
 var exportConfiguration = {
     exportOnlyVisible: true,
